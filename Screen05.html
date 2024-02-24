@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlankSpace - Alana</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+		function moveLeft() {
+		  $("img#cat").css("left", "-=10");
+		}
+
+		function moveRight() {
+		  $("img#cat").css("left", "+=10");
+		}
+
+		function moveUp() {
+		  $("img#cat").css("top", "-=10");
+		}
+
+		function moveDown() {
+		  $("img#cat").css("top", "+=10");
+		}
+	</script>        
+
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #000000;
+}
+
+#app {
+	color:#ffffff;
+}
+
+.image-container {
+  position: relative;
+  border: 3px solid #030303;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  background: #000;
+}
+
+.nextimage-container {
+  position: relative;
+  border: 3px solid #030303;
+  width: 600px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 1rem;
+  background: #000;
+}
+
+.titleimage-container {
+  position: relative;
+  border: 3px solid #030303;
+  width: 600px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 1rem;
+  background: #000;
+}
+
+.image-container img {
+  position: absolute;
+  top: 110px;
+  left: 110px;
+}
+
+
+.nextimage-container img {
+  position: absolute;
+  top: 5px;
+  left: 250px;
+}
+
+.titleimage-container img {
+  position: absolute;
+  top: 30px;
+  left: 115px;
+}
+</style>
+  </head>
+
+
+  <body>
+     <div id="app"></div>
+	
+    <div class="titleimage-container">
+      <img
+        width="455px"
+        src="https://i.ibb.co/DfRMQK2/B377-D5-CD-EEFD-4-DF4-9-BC0-343-A300-CF7-B5.png"
+      />
+    </div>	
+	
+    <div class="image-container">
+      <img
+        width="120px"
+        src="https://i.ibb.co/XytJvb4/Pawn.png"
+      />
+    </div>
+
+    <div class="nextimage-container">
+      <a href="screen06.html"><img
+        width="150px"
+        src="https://i.ibb.co/wzn4t6W/next.png"
+      />
+	  </a>
+    </div>	
+     
+  </body>
+</html>
+

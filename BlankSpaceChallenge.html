@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlankSpace - Alana</title>
+  <style>
+	body {
+	  font-family: sans-serif;
+	  background-color: #000;
+	}
+    #game-area {
+      width: 800px;
+      height: 600px;
+      background-color: #000;
+      position: relative;
+	  margin-left: auto;
+      margin-right: auto;
+    }
+    #player {
+      width: 50px;
+      height: 50px;
+      background-image: url('https://i.ibb.co/XytJvb4/Pawn.png');
+      background-size: cover;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .treasure {
+      width: 30px;
+      height: 30px;
+      background-image: url('https://i.ibb.co/4N94L61/5-C8-C7-E4-D-EC55-4-B81-8-F27-3-F3-CE6-C71745.png');
+      background-size: cover;
+      position: absolute;
+    }
+
+	.score-container {
+	  position: relative;
+	  border: 0px solid #fff;
+	  width: 600px;
+	  height: 100px;
+	  margin-left: auto;
+	  margin-right: auto;
+	  margin-bottom: auto;
+	  padding: 1rem;
+	  background: #000;
+	}
+
+    #score {
+      position: relative;
+      font-size: 32px;
+	  color: #ccc;
+	  margin-left: auto;
+      margin-right: auto;	  
+    }
+    #arrowinstruction{
+      position: relative;
+      font-size: 32px;
+	  color: #ccc;
+	  margin-left: auto;
+      margin-right: auto;	  
+    }
+  </style>
+</head>
+<body>
+<div class="score-container">
+<div id="score">You've found 0 treasures </div>
+</div>	
+<div id="game-area">
+  <div id="player"></div>
+</div>
+<div class="score-container">
+<div id="arrowinstruction">Use your arrow keys to navigate. </div>
+</div>
+
+<!-- jQuery cdn reference from yfei -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  var score = 0;
+  var totalTreasures = Math.floor(Math.random() * 8) + 3;
+  var treasuresFound = 0;
+
+  // Generate random treasures
+  for (var i = 0; i < totalTreasures; i++) {
+    var $treasure = $('<div class="treasure"></div>');
+    $treasure.css({
+      left: Math.random() * ($('#game-area').width() - 30),
+      top: Math.random() * ($('#game-area').height() - 30)
+    });
+    $('#game-area').append($treasure);
+  }
+
+  // Move player with arrow keys
+  $(document).keydown(function(e) {
+    var $player = $('#player');
+    var position = $player.position();
+    var step = 10;
+
+    switch(e.which) {
+      case 37: // left
+        $player.css('left', Math.max(position.left - step, 0));
+        break;
+      case 38: // up
+        $player.css('top', Math.max(position.top - step, 0));
+        break;
+      case 39: // right
+        $player.css('left', Math.min(position.left + step, $('#game-area').width() - $player.width()));
+        break;
+      case 40: // down
+        $player.css('top', Math.min(position.top + step, $('#game-area').height() - $player.height()));
+        break;
+    }
+
+    // Check for collision with treasures
+    $('.treasure').each(function() {
+      if (collision($player, $(this))) {
+        $(this).remove();
+        score++;
+        treasuresFound++;
+        $('#score').text("You've found " + score + " of " + totalTreasures + " treasures.");
+        if (treasuresFound === totalTreasures) {
+          location.href = "successful.html"; // Reload the page to restart the game
+        }
+      }
+    });
+  });
+
+  // Function to check collision between two elements
+  function collision($div1, $div2) {
+    var x1 = $div1.offset().left;
+    var y1 = $div1.offset().top;
+    var h1 = $div1.outerHeight(true);
+    var w1 = $div1.outerWidth(true);
+    var b1 = y1 + h1;
+    var r1 = x1 + w1;
+    var x2 = $div2.offset().left;
+    var y2 = $div2.offset().top;
+    var h2 = $div2.outerHeight(true);
+    var w2 = $div2.outerWidth(true);
+    var b2 = y2 + h2;
+    var r2 = x2 + w2;
+
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    return true;
+  }
+</script>
+
+</body>
+</html>

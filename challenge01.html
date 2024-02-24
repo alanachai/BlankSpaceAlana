@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlankSpace - Alana</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      let step = 10;
+      let score = 0;
+      
+      const canvasSize = { width: 300, height: 300}
+      // max: x - 30, y - 30
+      const figurePos = {
+        x: 1, y: 1
+      };
+      
+      var treasures = [];
+      
+      function initFigurePosition(){
+        figurePos.x = Math.floor((canvasSize.width/step)/2);
+        figurePos.y = Math.floor((canvasSize.height/step)/2);
+        move(figurePos.x, figurePos.y);
+      }
+      
+      function generateTreasure(){
+        const x = Math.floor(Math.random()*(canvasSize.width / step));
+        const y = Math.floor(Math.random()* (canvasSize.height / step));
+        
+        return {x, y};
+      }
+      
+      function resetTreasures(){
+        const n = Math.floor(Math.random()*10);
+        treasures = [];
+        for(let i = 0; i< n; i++){
+          treasures[i] = generateTreasure();
+        }
+        console.log(treasures);
+      }
+      
+      function resetGame(){
+        resetTreasures();
+        initFigurePosition();
+      }
+      
+      function updateScore(newScore){
+        score = newScore;
+        $("#score").text(score);
+      }
+      
+      function checkTresureCollision(){
+        let treasureIdx= -1;
+        treasures.forEach(function(loc, idx){
+          if(loc.x == figurePos.x && loc.y == figurePos.y){
+            treasureIdx = idx;
+            updateScore(score+1);
+          }
+        });
+        
+        if(treasureIdx > -1){
+          treasures.splice(treasureIdx, 1);  
+        }
+        
+      }
+      
+      function move(x,y){
+        $("img#cat").css("left", `${x * 10}px`);
+        $("img#cat").css("top", `${y * 10}px`);
+        console.log(x,y);
+        checkTresureCollision();
+      }
+      function moveLeft() {
+        figurePos.x --;
+        move(figurePos.x, figurePos.y);
+      }
+      
+      function moveRight() {
+        figurePos.x ++;
+        move(figurePos.x, figurePos.y);
+      }
+      
+      function moveUp() {
+        figurePos.y --;
+        move(figurePos.x, figurePos.y);
+      }
+      
+      function moveDown() {
+        figurePos.y ++;
+        move(figurePos.x, figurePos.y);
+      }
+      
+      $(function(){
+        $("#game-canvas").css("width", canvasSize.width)
+        .css("height", canvasSize.height);
+        
+        resetTreasures();
+        initFigurePosition();
+        
+      });
+      
+      document.onkeydown = function(e){
+        switch(e.which) {
+            case 37: // left
+              moveLeft();
+            break;
+        
+            case 38: // up
+              moveUp();
+            break;
+        
+            case 39: // right
+              moveRight();
+            break;
+        
+            case 40: // down
+              moveDown();
+            break;
+        
+            default: return; // exit this handler for other keys
+        }
+        e.preventDefault();
+      }
+    </script>        
+<style>
+body {
+  font-family: sans-serif;
+  background: #000;
+}
+
+.image-container {
+  position: relative;
+  border: 1px solid #030303;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  background: #000;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.button-panel button{
+  height: 2rem;
+  line-height: 1.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+.score-board{
+  font-weight: bold;
+  font-size: 5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+</style>
+  </head>
+
+
+  <body>
+    <div id="app"></div>
+
+    <div class="image-container" id="game-canvas">
+      <img
+        id="cat"
+		width="32px"
+        src="https://i.ibb.co/XytJvb4/Pawn.png"
+      />
+    </div>
+    <div class="text-center score-board" id="score">0</div>
+    <div class="text-center button-panel">
+      <button onclick="moveLeft()">Left</button>
+      <button onclick="moveRight()">Right</button>
+      <button onclick="moveUp()">Up</button>
+      <button onclick="moveDown()">Down</button>
+    </div>
+    <div class="text-center button-panel">
+      <button onclick="resetGame()">Reset</button>
+    </div>
+  </body>
+</html>
+

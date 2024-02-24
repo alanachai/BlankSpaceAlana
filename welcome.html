@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlankSpace - Alana</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+		function moveLeft() {
+		  $("img#cat").css("left", "-=10");
+		}
+
+		function moveRight() {
+		  $("img#cat").css("left", "+=10");
+		}
+
+		function moveUp() {
+		  $("img#cat").css("top", "-=10");
+		}
+
+		function moveDown() {
+		  $("img#cat").css("top", "+=10");
+		}
+	</script>        
+
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #000000;
+}
+
+#app {
+	color:#ffffff;
+}
+
+.image-container {
+  position: relative;
+  border: 3px solid #030303;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  background: #000;
+}
+
+.startimage-container {
+  position: relative;
+  border: 3px solid #030303;
+  width: 600px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 1rem;
+  background: #000;
+}
+
+.titleimage-container {
+  position: relative;
+  border: 3px solid #030303;
+  width: 600px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 1rem;
+  background: #000;
+}
+
+.image-container img {
+  position: absolute;
+  top: 110px;
+  left: 110px;
+}
+
+
+.startimage-container img {
+  position: absolute;
+  top: 5px;
+  left: 225px;
+}
+
+.titleimage-container img {
+  position: absolute;
+  top: 50px;
+  left: 175px;
+}
+</style>
+  </head>
+
+
+  <body>
+    <div id="app"></div>
+	
+    <div class="titleimage-container">
+      <img
+        width="300px"
+        src="https://i.ibb.co/Nt39mpf/GameName.png"
+      />
+    </div>	
+	
+    <div class="image-container">
+      <img
+        width="120px"
+        src="https://i.ibb.co/XytJvb4/Pawn.png"
+      />
+    </div>
+    <div class="startimage-container">
+      <a href="screen01.html"><img
+        width="200px"
+        src="https://i.ibb.co/8bRF72w/START.png"
+      />
+	  </a>
+    </div>	
+  </body>
+</html>
+

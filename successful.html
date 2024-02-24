@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlankSpace - Alana</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+		function moveLeft() {
+		  $("img#cat").css("left", "-=10");
+		}
+
+		function moveRight() {
+		  $("img#cat").css("left", "+=10");
+		}
+
+		function moveUp() {
+		  $("img#cat").css("top", "-=10");
+		}
+
+		function moveDown() {
+		  $("img#cat").css("top", "+=10");
+		}
+	</script>        
+
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #fff;
+}
+
+#app {
+	color:#000;
+}
+
+.image-container {
+  position: relative;
+  border: 0px solid #030303;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  background: #fff;
+}
+
+.startimage-container {
+  position: relative;
+  border: 0px solid #030303;
+  width: 600px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 1rem;
+  background: #fff;
+}
+
+.titleimage-container {
+  position: relative;
+  border: 0px solid #030303;
+  width: 600px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 1rem;
+  background: #fff;
+}
+
+.image-container img {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+}
+
+.startimage-container img {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+#playagain {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+#endgame {
+  position: absolute;
+  top: 5px;
+  left: 350px;
+}
+
+.titleimage-container img {
+  position: absolute;
+  top: 50px;
+  left: 30px;
+}
+</style>
+  </head>
+
+
+  <body>
+    <div id="app"></div>
+	
+    <div class="titleimage-container">
+      <img
+        width="600px"
+        src="https://i.ibb.co/N9p9s3Q/Congrats-Torches.png"
+      />
+    </div>	
+	
+    <div class="image-container">
+      <img
+        width="300px"
+        src="https://i.ibb.co/n0b0W4T/8-C1-C58-FF-2196-4-BD2-9758-99693751-F7-C6.png"
+      />
+    </div>
+    <div class="startimage-container">
+      <img
+        width="600px"
+        src="https://i.ibb.co/pyGv73q/Light-Back.png"
+      />
+    </div>
+    <div class="startimage-container">
+      <a href="BlankSpaceChallenge.html"><img id="playagain"
+        width="300px"
+        src="https://i.ibb.co/18dgX9r/B1-AB0501-E03-E-4127-8-FE7-9-FA80171-FA9-B.png"
+      />
+	  </a>
+	  <a href="welcome.html"><img id="endgame"
+        width="300px"
+        src="https://i.ibb.co/j58t4zk/E15-BE3-C3-33-CA-4-EA2-831-C-AB5-DF61-C45-AD.png"
+      />
+	  </a>
+    </div>	
+	
+  </body>
+</html>
+

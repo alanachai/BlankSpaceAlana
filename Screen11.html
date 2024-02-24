@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlankSpace - Alana</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+		function moveLeft() {
+		  $("img#cat").css("left", "-=10");
+		}
+
+		function moveRight() {
+		  $("img#cat").css("left", "+=10");
+		}
+
+		function moveUp() {
+		  $("img#cat").css("top", "-=10");
+		}
+
+		function moveDown() {
+		  $("img#cat").css("top", "+=10");
+		}
+	</script>        
+
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #000000;
+}
+
+#app {
+	color:#ffffff;
+}
+
+.image-container {
+  position: relative;
+  border: 3px solid #030303;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  background: #000;
+}
+
+.choice1_image-container {
+  position: relative;
+  border: 3px solid #030303;
+  width: 600px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 1rem;
+  background: #000;
+}
+
+.choice2_image-container {
+  position: relative;
+  border: 3px solid #030303;
+  width: 600px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top:auto;
+  padding: 1rem;
+  background: #000;
+}
+
+.titleimage-container {
+  position: relative;
+  border: 3px solid #030303;
+  width: 600px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 1rem;
+  background: #000;
+}
+
+.image-container img {
+  position: absolute;
+  top: 110px;
+  left: 110px;
+}
+
+
+.choice1_image-container img {
+  position: absolute;
+  top: 0px;
+  left: 170px;
+}
+
+.choice2_image-container img {
+  position: absolute;
+  top: 0px;
+  left: 170px;
+}
+
+.titleimage-container img {
+  position: absolute;
+  top: 50px;
+  left: 115px;
+}
+</style>
+  </head>
+
+
+  <body>
+     <div id="app"></div>
+	
+    <div class="titleimage-container">
+      <img
+        width="455px"
+        src="https://i.ibb.co/n6Sb753/20-E4-AA06-C10-E-4-B97-A8-F0-A33933-DC1-F38.png"
+      />
+    </div>	
+	
+    <div class="image-container">
+      <img
+        width="120px"
+        src="https://i.ibb.co/XytJvb4/Pawn.png"
+      />
+    </div>
+	
+    <div class="choice1_image-container">
+      <a href="BlankSpaceChallenge.html"><img
+        width="300px"
+        src="https://i.ibb.co/t4XGFg2/9-B8-FE682-5-C6-A-498-B-A120-6219-ACDF84-F9.png"
+      />
+	  </a>
+    </div>	
+	
+    <div class="choice2_image-container">
+      <a href="screen05.html"><img
+        width="300px"
+        src="https://i.ibb.co/y80KtvL/87-F05-F30-37-A5-42-A0-A936-2-C8-D531-FCBC4.png"
+      />
+	  </a>
+    </div>	
+
+     
+  </body>
+</html>
+
